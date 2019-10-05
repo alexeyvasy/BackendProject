@@ -11,7 +11,6 @@ app.get("/", (req, res) => {
 app.post("/api/sum", (req, res) => {
 
     //  validating the input JSON. checking if it is actually JSON Object with 2 arrays of integers. 
-    //  arrays must be named "num1" and "num2".
     errorInputValidation(req, res);
     const num1 = req.body[Object.keys(req.body)[0]];
     const num2 = req.body[Object.keys(req.body)[1]];
@@ -26,7 +25,6 @@ app.post("/api/sum", (req, res) => {
 app.post("/api/multiply", (req, res) => {
 
     //  validating the input JSON file. checking if it is actually JSON Object with 2 arrays of integers. 
-
     errorInputValidation(req, res);
     const num1 = req.body[Object.keys(req.body)[0]];
     const num2 = req.body[Object.keys(req.body)[1]];
@@ -41,10 +39,8 @@ app.post("/api/multiply", (req, res) => {
 function errorInputValidation(req, res) {
 
     const arraySchema = Joi.array().min(1).required().items(Joi.number().integer().min(0).max(9));
-    const objectSchema = Joi.object({
-        "num1": arraySchema,
-        "num2": arraySchema
-    });
+
+    const objectSchema = Joi.object().pattern(Joi.string().min(1), arraySchema);            // schema for validating that a key will be a string and the value a proper array
 
     const result = objectSchema.validate(req.body);
 
