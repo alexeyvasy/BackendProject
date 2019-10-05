@@ -13,9 +13,11 @@ app.post("/api/sum", (req, res) => {
     //  validating the input JSON. checking if it is actually JSON Object with 2 arrays of integers. 
     //  arrays must be named "num1" and "num2".
     errorInputValidation(req, res);
+    const num1 = req.body[Object.keys(req.body)[0]];
+    const num2 = req.body[Object.keys(req.body)[1]];
 
     const answer = {
-        "sumAnswerArray": sum(req.body.num1, req.body.num2)
+        "sumAnswerArray": sum(num1, num2)
     };
 
     res.send(answer);
@@ -24,11 +26,13 @@ app.post("/api/sum", (req, res) => {
 app.post("/api/multiply", (req, res) => {
 
     //  validating the input JSON file. checking if it is actually JSON Object with 2 arrays of integers. 
-    //  arrays must be named "num1" and "num2".
+
     errorInputValidation(req, res);
+    const num1 = req.body[Object.keys(req.body)[0]];
+    const num2 = req.body[Object.keys(req.body)[1]];
 
     const answer = {
-        "multiplyAnswerArray": multiply(req.body.num1, req.body.num2)
+        "multiplyAnswerArray": multiply(num1, num2)
     };
 
     res.send(answer);
