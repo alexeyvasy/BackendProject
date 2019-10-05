@@ -10,7 +10,7 @@ make sure to install all dependencies from npm.
 
 the app will start listening by deafult on localhost with PORT 3000, (localhost:3000)
 
-#assumptions, extras and decisions:
+## assumptions, extras and decisions:
 
 - decided to make it a HTTP POST request. with JSON file attached to the body, and with 2 arrays inside.
     in the response from the server also a JSON with single array.
