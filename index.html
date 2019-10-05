@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>This is my assignment Server. </h1>
+    <h2>you can multiply and add long numbers represented as arrays</h2>
+
+    <input type="number" id="num1" placeholder="enter num1">
+
+    <select name="function" id="selector">
+        <option> Multiply </option>
+        <option> Sum </option>
+    </select>
+
+    <input type="number" id="num2" placeholder="enter num2">
+    <button id="calculate" onclick="sendPostRequest()"> Calculate! </button>
+
+
+    <h1> Answer is:</h1>
+    <h2 id="answer"></h2>
+
+    <script>
+
+        function sendPostRequest() {
+
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+
+            num1 = num1.split("").map(Number);
+            num2 = num2.split("").map(Number);
+
+
+            // here comes logic of sending post request to server...
+            let url = 'http://localhost:3000/api/';
+            if (document.getElementById("selector").value === "Multiply") {
+                url += "multiply";
+            }
+            else {
+                url += "sum";
+            }
+            const myData = {
+                "num1": num1,
+                "num2": num2
+            };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    answer = JSON.parse(xhr.response);
+                    document.getElementById("answer").innerHTML = answer[Object.keys(answer)[0]];
+
+                }
+            }
+
+            xhr.send(JSON.stringify(myData));
+        }
+    </script>
+
+</body>
+
+</html>
