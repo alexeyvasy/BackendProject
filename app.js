@@ -159,7 +159,7 @@ function multiply(num1, num2) {
 
 const port = process.env.port || 3000
 app.listen(port, () => {
-    //console.log(`listning on port: ${port}`);
+    console.log(`listning on port: ${port}`);
 });
 
 exports.sum = sum;
