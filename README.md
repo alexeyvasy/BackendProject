@@ -2,11 +2,16 @@
 
 I'm using Node.js runtime environment, Express.js server Framework, Jest.js for unit testing and Joi.js for input validation.
 
-for running the app you need to install NODE on your machine and run a command in the terminal:    
+for running the app you need to install NODE on your machine.
+
+make sure to install all dependencies from npm.
+
+    npm install
+    
+and THEN run a command in the terminal:    
     
     node app.js
 
-make sure to install all dependencies from npm.
 
 the app will start listening by deafult on localhost with PORT 3000, (localhost:3000)
 although you can change this with giving a specific port value to PORT environment variable.
