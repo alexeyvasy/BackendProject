@@ -1,4 +1,4 @@
-# This is my Backend app for DoubleVerify challange.
+# This is my Backend app challenge.
 
 I'm using Node.js runtime environment, Express.js server Framework, Jest.js for unit testing and Joi.js for input validation.
 
