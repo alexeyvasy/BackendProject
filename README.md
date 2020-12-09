@@ -26,4 +26,4 @@ although you can change this with giving a specific port value to PORT environme
 
 - my main assumption is that a number represented by an array can not be negative. (only positives and zero) 
 
-- I've also created a simple html page with script just for fun and it was a bit of a learning for me.
+- I've also created a simple html page for UI
